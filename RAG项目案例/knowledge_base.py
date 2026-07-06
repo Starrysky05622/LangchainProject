@@ -78,7 +78,7 @@ class KnowledgeBaseService(object):
             "source": filename,
             # 2025-01-01 10:00:00
             "create_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "operator": "小曹",
+            "operator": "FitBot管理员",
         }
 
         self.chroma.add_texts(      # 内容就加载到向量库中了
@@ -95,5 +95,5 @@ class KnowledgeBaseService(object):
 
 if __name__ == '__main__':
     service = KnowledgeBaseService()
-    r = service.upload_by_str("周杰轮222", "testfile")
+    r = service.upload_by_str("增肌期每天需要摄入1.6-2.2g/kg体重的蛋白质，配合充足碳水。", "testfile")
     print(r)

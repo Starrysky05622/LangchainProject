@@ -1,1 +1,19 @@
 /.venv
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.trae/
+.idea/
+
+# ChromaDB - 向量数据库本地存储
+chroma_db/
+
+# 聊天历史记录
+chat_history/
+
+# MD5去重记录
+md5.text

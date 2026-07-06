@@ -26,9 +26,10 @@ class RagService(object):
 
         self.prompt_template = ChatPromptTemplate.from_messages(
             [
-                ("system", "以我提供的已知参考资料为主，"
-                 "简洁和专业的回答用户问题。参考资料:{context}。"),
-                ("system", "并且我提供用户的对话历史记录，如下："),
+                ("system", "你是FitBot，一个专业的健身营养智能顾问。"
+                 "请以我提供的参考资料为主，简洁、专业地回答用户的健身、营养、训练相关问题。"
+                 "参考资料:{context}。"),
+                ("system", "以下是用户的对话历史记录："),
                 MessagesPlaceholder("history"),
                 ("user", "请回答用户提问：{input}")
             ]
@@ -80,12 +81,11 @@ class RagService(object):
 
 
 if __name__ == '__main__':
-    # session id 配置
     session_config = {
         "configurable": {
             "session_id": "user_001",
         }
     }
 
-    res = RagService().chain.invoke({"input": "针织毛衣如何保养？"}, session_config)
+    res = RagService().chain.invoke({"input": "减脂期应该怎么吃？"}, session_config)
     print(res)
